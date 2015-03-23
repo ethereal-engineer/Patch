@@ -1,0 +1,22 @@
+{
+  "name": "Patch",
+  "version": "0.1.0",
+  "summary": "A stand-in for the real Patch, coming VERY soon.",
+  "description": "                       Patch is a flexible datasource framework for iOS. You're going to love it.\n",
+  "homepage": "https://github.com/iosengineer/Patch",
+  "license": "MIT",
+  "authors": {
+    "Adam Iredale": "@iosengineer"
+  },
+  "source": {
+    "git": "https://github.com/iosengineer/Patch.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/iosengineer",
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "frameworks": "UIKit"
+}
