@@ -77,6 +77,7 @@
 		6175B9C3F3F72AA0EB47C2F8 /* EXPFloatTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AECEB5C811AE4F1B309725 /* EXPFloatTuple.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		62C1FEFB8C8B27017647A7A3 /* PDSDataSourceChangeListener.m in Sources */ = {isa = PBXBuildFile; fileRef = AC74655782C385D4DE6921F3 /* PDSDataSourceChangeListener.m */; };
 		62C59E664DB48CD1A83C2A9D /* PDSSampleDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 33D77FA656652F68078F4242 /* PDSSampleDataSource.h */; };
+		668146201AC0142D0009EAA5 /* PDSMemoizedDataSourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681461F1AC0142D0009EAA5 /* PDSMemoizedDataSourceAdapter.m */; };
 		693D1D45FFB106C7154F5B69 /* SPTTestSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = E5B0B6826171B360604349EB /* SPTTestSuite.h */; };
 		694C0292076EDD63AC9C827F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9643E39BA55DF376E1EACD /* Foundation.framework */; };
 		6D483603EEAB62AEFD342760 /* NSValue+Expecta.m in Sources */ = {isa = PBXBuildFile; fileRef = 541BCF6F24D0D0C897222EFA /* NSValue+Expecta.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -287,6 +288,8 @@
 		63A2B3AA8FC79C4572C92228 /* EXPMatchers+beFalsy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beFalsy.m"; path = "Expecta/Matchers/EXPMatchers+beFalsy.m"; sourceTree = "<group>"; };
 		65C313B10CFFA45C9708AE13 /* SPTTestSuite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SPTTestSuite.m; path = Specta/Specta/SPTTestSuite.m; sourceTree = "<group>"; };
 		660ADC53382E806394BBF618 /* ExpectaObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ExpectaObject.m; path = Expecta/ExpectaObject.m; sourceTree = "<group>"; };
+		6681461E1AC0142D0009EAA5 /* PDSMemoizedDataSourceAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSMemoizedDataSourceAdapter.h; sourceTree = "<group>"; };
+		6681461F1AC0142D0009EAA5 /* PDSMemoizedDataSourceAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSMemoizedDataSourceAdapter.m; sourceTree = "<group>"; };
 		6682B0F7466108EF65A76D60 /* EXPMatchers+beKindOf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beKindOf.h"; path = "Expecta/Matchers/EXPMatchers+beKindOf.h"; sourceTree = "<group>"; };
 		66F9E5C9044E052866FE3C8F /* EXPMatchers+equal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+equal.h"; path = "Expecta/Matchers/EXPMatchers+equal.h"; sourceTree = "<group>"; };
 		6772218453C5B5198A7D8B7C /* SPTCallSite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPTCallSite.h; path = Specta/Specta/SPTCallSite.h; sourceTree = "<group>"; };
@@ -520,6 +523,8 @@
 				FBFE6C2C7554FA8C820C3F11 /* PDSIndexMappedDataSource.m */,
 				9BBE5D459CF388213BC094D0 /* PDSMappedDataSource.h */,
 				70565BC2CAA099D4427FBE26 /* PDSMappedDataSource.m */,
+				6681461E1AC0142D0009EAA5 /* PDSMemoizedDataSourceAdapter.h */,
+				6681461F1AC0142D0009EAA5 /* PDSMemoizedDataSourceAdapter.m */,
 				5BC0F927174D01497183BAF6 /* PDSPageViewControllerDataSource.h */,
 				CAED55662C50267574E14DCB /* PDSPageViewControllerDataSource.m */,
 				E260E48724DBA2B746BFE636 /* PDSPassThroughDataSource.h */,
@@ -1027,6 +1032,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668146201AC0142D0009EAA5 /* PDSMemoizedDataSourceAdapter.m in Sources */,
 				2AEC7F649C65D7485C091F7F /* Pods-Patch-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
