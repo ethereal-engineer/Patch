@@ -10,9 +10,20 @@
 
 @implementation PDSDemoDataFactory
 
-+ (id<PDSDataSource>)demoArrayDataSource
++ (id<PDSDataSource>)arrayDataSource
 {
-    return []
+    return nil;
+}
+
++ (id<PDSDataSource>)filteredCompositeDataSource
+{
+    id <PDSDataSource> arrayDataSource1 = [PDSArrayDataSource arrayDataSourceWithArray:@[@1, @3, @5]];
+    id <PDSDataSource> arrayDataSource2 = [PDSArrayDataSource arrayDataSourceWithArray:@[@2, @4, @6]];
+    
+    id <PDSDataSource> compositeDataSource = [PDSCompositeDataSource compositeDataSourceWithDataSources:@[arrayDataSource1, arrayDataSource2]];
+    
+    return [PDSFilteredDataSource filteredDataSourceWithDataSource:compositeDataSource
+                                                            filter:[NSPredicate predicateWithFormat:@"self < 4"]];
 }
 
 @end

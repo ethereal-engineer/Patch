@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSPredicate *filter;
 @property (nonatomic, assign) BOOL filtered;
 
-- (instancetype)initWithDataSource:(id <PDSFilterableDataSource>)dataSource filter:(NSPredicate *)filter NS_DESIGNATED_INITIALIZER;
-+ (instancetype)filteredDataSourceWithDataSource:(id <PDSFilterableDataSource>)dataSource filter:(NSPredicate *)filter;
+- (instancetype)initWithDataSource:(id <PDSDataSource>)dataSource filter:(NSPredicate *)filter NS_DESIGNATED_INITIALIZER;
++ (instancetype)filteredDataSourceWithDataSource:(id <PDSDataSource>)dataSource filter:(NSPredicate *)filter;
 
 @end

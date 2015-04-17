@@ -58,6 +58,7 @@
  */
 
 #import "PDSArrayDataSource+PDSFilterableDataSource.h"
+#import "PDSCompositeDataSource+PDSFilterableDataSource.h"
 
 /**
  *  @name Half-baked ideas

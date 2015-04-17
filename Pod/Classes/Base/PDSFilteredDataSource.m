@@ -37,7 +37,7 @@
     {
         self.filter     = filter;
         // If a filter is not specified, turn off filtering initially
-        self.filtered   = NO;//(filter != nil); // !!!
+        self.filtered   = (filter != nil);
     }
     return self;
 }
@@ -54,21 +54,37 @@
 
 - (NSUInteger)numberOfItems
 {
+    if (![self.dataSource conformsToProtocol:@protocol(PDSFilterableDataSource)])
+    {
+        return [super numberOfItems];
+    }
     return [(id<PDSFilterableDataSource>)self.dataSource numberOfItemsMatchingPredicate:[self activePredicate]];
 }
 
 - (NSUInteger)numberOfItemsInSection:(NSInteger)section
 {
+    if (![self.dataSource conformsToProtocol:@protocol(PDSFilterableDataSource)])
+    {
+        return [super numberOfItemsInSection:section];
+    }
     return [(id<PDSFilterableDataSource>)self.dataSource numberOfItemsInSection:section matchingPredicate:[self activePredicate]];
 }
 
 - (id)itemAtIndex:(NSInteger)index
 {
+    if (![self.dataSource conformsToProtocol:@protocol(PDSFilterableDataSource)])
+    {
+        return [super itemAtIndex:index];
+    }
     return [(id<PDSFilterableDataSource>)self.dataSource filteredItemAtIndex:index predicate:[self activePredicate]];
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (![self.dataSource conformsToProtocol:@protocol(PDSFilterableDataSource)])
+    {
+        return [super itemAtIndexPath:indexPath];
+    }
     return [(id<PDSFilterableDataSource>)self.dataSource filteredItemAtIndexPath:indexPath predicate:[self activePredicate]];
 }
 

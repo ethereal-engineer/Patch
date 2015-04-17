@@ -28,10 +28,16 @@
       "name": "iCarousel",
       "dependencies": {
         "Patch/base": [
-          "iCarousel"
+
+        ],
+        "iCarousel": [
+
         ]
       },
-      "source_files": "Pod/Classes/Adapters/PDSCarouselDataSourceAdapter.{m,h}"
+      "source_files": "Pod/Classes/Adapters/PDSCarouselDataSource.{m,h}",
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DPATCH_INCLUDES_ICAROUSEL"
+      }
     },
     {
       "name": "CoreData",
@@ -41,7 +47,10 @@
         ]
       },
       "frameworks": "CoreData",
-      "source_files": "Pod/Classes/Extensions/PDSCoreDataSource.{m,h}"
+      "source_files": "Pod/Classes/Extensions/PDSCoreDataSource.{m,h}",
+      "xcconfig": {
+        "OTHER_CFLAGS": "-DPATCH_INCLUDES_COREDATA"
+      }
     }
   ]
 }

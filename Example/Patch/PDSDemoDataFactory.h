@@ -10,7 +10,7 @@
 
 @interface PDSDemoDataFactory : NSObject
 
-+ (id <PDSDataSource>)demoArrayDataSource;
-+ (id <PDSDataSource>)demoCoreDataDataSource;
++ (id <PDSDataSource>)arrayDataSource;
++ (id <PDSDataSource>)filteredCompositeDataSource;
 
 @end
