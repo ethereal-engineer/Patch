@@ -32,13 +32,13 @@ Pod::Spec.new do |s|
     ss.source_files = 'Pod/Classes/Extensions/PDSCoreDataSource.{m,h}'
   end
 
-/*
-  // Coming Soon...
-
-  s.subspec 'YapDatabase' do |ss|
-    ss.dependency 'Patch/base', 'YapDatabase'
-    ss.source_files = 'Pod/Classes/Extensions/PDSYapDataSource.{m,h}'
-  end
-*/
+#
+#  // Coming Soon...
+#
+#  s.subspec 'YapDatabase' do |ss|
+#    ss.dependency 'Patch/base', 'YapDatabase'
+#    ss.source_files = 'Pod/Classes/Extensions/PDSYapDataSource.{m,h}'
+#  end
+#
 
 end

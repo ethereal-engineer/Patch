@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/Base/PDSMemoizedDataSourceAdapter.h

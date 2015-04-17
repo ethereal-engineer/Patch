@@ -17,6 +17,31 @@
     "ios": "7.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "frameworks": "UIKit"
+  "default_subspecs": "base",
+  "subspecs": [
+    {
+      "name": "base",
+      "source_files": "Pod/Classes/Base/**/*",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "iCarousel",
+      "dependencies": {
+        "Patch/base": [
+          "iCarousel"
+        ]
+      },
+      "source_files": "Pod/Classes/Adapters/PDSCarouselDataSourceAdapter.{m,h}"
+    },
+    {
+      "name": "CoreData",
+      "dependencies": {
+        "Patch/base": [
+
+        ]
+      },
+      "frameworks": "CoreData",
+      "source_files": "Pod/Classes/Extensions/PDSCoreDataSource.{m,h}"
+    }
+  ]
 }
