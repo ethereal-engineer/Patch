@@ -22,7 +22,9 @@
  *  @name Sources
  */
 
+#ifdef PATCH_INCLUDES_COREDATA
 #import "PDSCoreDataSource.h"
+#endif
 #import "PDSArrayDataSource.h"
 #import "PDSDirectoryContentDataSource.h"
 
@@ -45,7 +47,9 @@
 
 #warning TABLE VIEW DS ADAPTER MUST BE RECREATED
 //#import "PDSTableViewDataSource.h"
+#ifdef PATCH_INCLUDES_ICAROUSEL
 #import "PDSCarouselDataSource.h"
+#endif
 #import "PDSCollectionViewDataSource.h"
 #import "PDSPageViewControllerDataSource.h"
 
@@ -61,3 +65,4 @@
 
 //#import "PDSMemoizedDataSourceAdapter.h"
 //#import "PDSPredicatePropertyCoreDataSource.h"
+

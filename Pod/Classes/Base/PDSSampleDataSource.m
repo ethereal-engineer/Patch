@@ -8,21 +8,6 @@
 
 #import "PDSSampleDataSource.h"
 
-/**
- *  @name Macro for index-mapping (hopefully temporary)
- */
-static inline double PDSIndexMappingDelta(NSInteger fromMaxIndex, NSInteger toMaxIndex)
-{
-    if (fromMaxIndex <= 0 || toMaxIndex <= 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return (double)fromMaxIndex / (double)toMaxIndex;
-    }
-}
-
 // TODO: This is pretty much a filter, but it's by index rather than object - see if a merge is possible
 
 @implementation PDSSampleDataSource

@@ -21,3 +21,23 @@
 @property (nonatomic, assign) NSUInteger maximumCount;
 
 @end
+
+#ifndef PDS_SampleMappingMacro
+#define PDS_SampleMappingMacro
+
+/**
+ *  @name Macro for index-mapping (hopefully temporary)
+ */
+static inline double PDSIndexMappingDelta(NSInteger fromMaxIndex, NSInteger toMaxIndex)
+{
+    if (fromMaxIndex <= 0 || toMaxIndex <= 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return (double)fromMaxIndex / (double)toMaxIndex;
+    }
+}
+
+#endif

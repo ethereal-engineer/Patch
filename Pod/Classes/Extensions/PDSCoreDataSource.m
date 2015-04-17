@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Bionic Monocle Pty Ltd. All rights reserved.
 //
 
+@import CoreData;
+
 #import "PDSCoreDataSource.h"
 
 #pragma mark - Composites
@@ -21,9 +23,6 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
-
-// Log levels: off, error, warn, info, verbose
-static const int ddLogLevel = DDLogLevelDefault;
 
 @implementation PDSCoreDataSource
 
@@ -82,7 +81,8 @@ static const int ddLogLevel = DDLogLevelDefault;
         NSError *error = nil;
         if (![_fetchedResultsController performFetch:&error])
         {
-            DDLogError(@"Core Data fetch failed for %@ with error: %@", _fetchRequest, error);
+#warning Error handling
+            //DDLogError(@"Core Data fetch failed for %@ with error: %@", _fetchRequest, error);
         }
     }
     return _fetchedResultsController;

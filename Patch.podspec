@@ -22,21 +22,25 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'iCarousel' do |ss|
-    ss.dependency 'Patch/base', 'iCarousel'
-    ss.source_files = 'Pod/Classes/Adapters/PDSCarouselDataSourceAdapter.{m,h}'
+    ss.dependency 'Patch/base'
+    ss.dependency 'iCarousel'
+    ss.source_files = 'Pod/Classes/Adapters/PDSCarouselDataSource.{m,h}'
+    ss.xcconfig = { 'OTHER_CFLAGS' => '-DPATCH_INCLUDES_ICAROUSEL' }
   end
 
   s.subspec 'CoreData' do |ss|
     ss.dependency 'Patch/base'
     ss.frameworks = 'CoreData'
     ss.source_files = 'Pod/Classes/Extensions/PDSCoreDataSource.{m,h}'
+    ss.xcconfig = { 'OTHER_CFLAGS' => '-DPATCH_INCLUDES_COREDATA' }
   end
 
 #
-#  // Coming Soon...
+#  // Coming Soon... (also, Realm, others...)
 #
 #  s.subspec 'YapDatabase' do |ss|
-#    ss.dependency 'Patch/base', 'YapDatabase'
+#    ss.dependency 'Patch/base'
+#    ss.dependency 'YapDatabase'
 #    ss.source_files = 'Pod/Classes/Extensions/PDSYapDataSource.{m,h}'
 #  end
 #

@@ -12,6 +12,10 @@
 
 #import "PatchProtocols.h"
 
+#pragma mark - Third-Party Frameworks
+
+#import <iCarousel/iCarousel.h>
+
 @interface PDSCarouselDataSource : NSObject <iCarouselDataSource, PDSDataSourceChangeListener>
 
 @property (nonatomic, copy) UIView *(^instantiateViewBlock)(NSInteger index);
