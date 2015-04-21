@@ -45,11 +45,10 @@
  *  @name Converting Adapters
  */
 
-#warning TABLE VIEW DS ADAPTER MUST BE RECREATED
-//#import "PDSTableViewDataSource.h"
 #ifdef PATCH_INCLUDES_ICAROUSEL
 #import "PDSCarouselDataSource.h"
 #endif
+#import "PDSTableViewDataSource.h"
 #import "PDSCollectionViewDataSource.h"
 #import "PDSPageViewControllerDataSource.h"
 

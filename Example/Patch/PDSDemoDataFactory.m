@@ -8,11 +8,34 @@
 
 #import "PDSDemoDataFactory.h"
 
+#pragma mark - Menu Item
+
+#import "PDSDemoMenuItem.h"
+
+@interface PDSDemoDataFactory ()
+
+@end
+
 @implementation PDSDemoDataFactory
+
+#pragma mark - Menu Items
+
++ (id<PDSDataSource>)mainMenuItemsDataSource
+{
+    return [PDSArrayDataSource arrayDataSourceWithArray:
+  @[
+    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"TableView"],
+    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"CollectionView"],
+    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"PageViewController"],
+    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"iCaraousel"]
+    ]];
+}
+
+#pragma mark - Other
 
 + (id<PDSDataSource>)arrayDataSource
 {
-    return nil;
+    return [PDSArrayDataSource arrayDataSourceWithArray:@[@1, @3, @5]];
 }
 
 + (id<PDSDataSource>)filteredCompositeDataSource
@@ -24,6 +47,12 @@
     
     return [PDSFilteredDataSource filteredDataSourceWithDataSource:compositeDataSource
                                                             filter:[NSPredicate predicateWithFormat:@"self < 4"]];
+}
+
++ (id<PDSDataSource>)mappedRandomNumberDataSource
+{
+    // I'll fashion this into a nicer abstract datasource later on
+    return nil;
 }
 
 @end

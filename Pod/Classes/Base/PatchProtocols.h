@@ -35,6 +35,14 @@
  */
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 /**
+ *  Returns an array of items in a given section
+ *
+ *  @param section Index of section
+ *
+ *  @return An array of items contained in this section
+ */
+- (NSArray *)itemsInSection:(NSUInteger)section;
+/**
  *  Return the number of items in the given section
  *
  *  @param section Section index

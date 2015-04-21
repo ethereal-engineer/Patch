@@ -70,6 +70,11 @@
     return [self itemAtIndex:indexPath.item];
 }
 
+- (NSArray *)itemsInSection:(NSUInteger)section
+{
+    return _array;
+}
+
 - (void)reload
 {
     // Nothing to do!

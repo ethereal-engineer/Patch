@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PDSDemoViewController : UIViewController
+@interface PDSDemoTableViewController : UITableViewController
 
 @end

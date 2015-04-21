@@ -10,7 +10,24 @@
 
 @interface PDSDemoDataFactory : NSObject
 
+/**
+ *  @name Main Menu
+ */
+
++ (id <PDSDataSource>)mainMenuItemsDataSource;
+
+/**
+ *  @name Basic DataSource Demos
+ */
+
 + (id <PDSDataSource>)arrayDataSource;
+
+/**
+ *  @name Advanced DataSource Demos
+ */
+
 + (id <PDSDataSource>)filteredCompositeDataSource;
++ (id <PDSDataSource>)sampledDataSource;
++ (id <PDSDataSource>)mappedRandomNumberDataSource;
 
 @end
