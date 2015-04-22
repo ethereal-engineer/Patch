@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Bionic Monocle Pty Ltd. All rights reserved.
 //
 
+@import CoreData;
+
 #import "PatchProtocols.h"
 
 /**
@@ -21,5 +23,11 @@
 + (instancetype)dataSourceWithEntityName:(NSString *)name sortDescriptors:(NSArray *)sortDescriptors andContext:(NSManagedObjectContext *)context;
 
 + (instancetype)dataSourceWithEntityName:(NSString *)name sortDescriptors:(NSArray *)sortDescriptors predicate:(NSPredicate *)predicate andContext:(NSManagedObjectContext *)context;
+
+@end
+
+@interface PDSCoreDataSource (ReadOnly)
+
+@property (nonatomic, readonly) NSManagedObjectContext *context;
 
 @end

@@ -73,51 +73,51 @@
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     for (id <PDSDataSourceChangeListener> listener in _listeners)
     {
-        [listener dataSource:dataSource didInsertItemAtIndexPath:indexPath];
+        [listener dataSource:dataSource didInsertItem:item atIndexPath:indexPath];
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     for (id <PDSDataSourceChangeListener> listener in _listeners)
     {
-        [listener dataSource:dataSource didRemoveItemAtIndexPath:indexPath];
+        [listener dataSource:dataSource didRemoveItem:item atIndexPath:indexPath];
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     for (id <PDSDataSourceChangeListener> listener in _listeners)
     {
-        [listener dataSource:dataSource didUpdateItemAtIndexPath:indexPath];
+        [listener dataSource:dataSource didUpdateItem:item atIndexPath:indexPath];
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     for (id <PDSDataSourceChangeListener> listener in _listeners)
     {
-        [listener dataSource:dataSource didInsertSectionAtIndex:index];
+        [listener dataSource:dataSource didInsertSection:sectionInfo atIndex:index];
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     for (id <PDSDataSourceChangeListener> listener in _listeners)
     {
-        [listener dataSource:dataSource didUpdateSectionAtIndex:index];
+        [listener dataSource:dataSource didUpdateSection:sectionInfo atIndex:index];
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     for (id <PDSDataSourceChangeListener> listener in _listeners)
     {
-        [listener dataSource:dataSource didRemoveSectionAtIndex:index];
+        [listener dataSource:dataSource didRemoveSection:sectionInfo atIndex:index];
     }
 }
 

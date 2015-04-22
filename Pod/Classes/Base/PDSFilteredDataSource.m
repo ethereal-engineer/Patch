@@ -8,10 +8,7 @@
 
 #import "PDSFilteredDataSource.h"
 
-@interface PDSFilteredDataSource ()
-
-// !!!
-//@property (nonatomic, readonly) id <PDSFilterableDataSource> dataSource;
+@interface PDSFilteredDataSource () <PDSDataSourceChangeListener>
 
 @end
 
@@ -87,6 +84,63 @@
     }
     return [(id<PDSFilterableDataSource>)self.dataSource filteredItemAtIndexPath:indexPath predicate:[self activePredicate]];
 }
+
+#pragma mark - PDSDataSourceChangeListener
+
+//- (void)dataSourceWillChange:(id<PDSDataSource>)dataSource
+//{
+//    
+//}
+//
+//- (void)dataSourceDidChange:(id<PDSDataSource>)dataSource
+//{
+//    
+//}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
+{
+    if (![self.dataSource conformsToProtocol:@protocol(PDSFilterableDataSource)])
+    {
+        [super dataSource:dataSource didInsertItem:item atIndexPath:indexPath];
+        return;
+    }
+
+    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath];
+    if (filteredIndexPath)
+    {
+        [super dataSource:dataSource didInsertItem:item atIndexPath:filteredIndexPath];
+    }
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItem:(id)item atIndexPath:(NSIndexPath *)indexPath
+{
+    if (![self.dataSource conformsToProtocol:@protocol(PDSFilterableDataSource)])
+    {
+        [super dataSource:dataSource didRemoveItem:item atIndexPath:indexPath];
+    }
+    
+    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath];
+    if (filteredIndexPath)
+    {
+        [super dataSource:dataSource didRemoveItem:item atIndexPath:filteredIndexPath];
+    }
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItem:(id)item atIndexPath:(NSIndexPath *)indexPath
+{
+    if (![self.dataSource conformsToProtocol:@protocol(PDSFilterableDataSource)])
+    {
+        [super dataSource:dataSource didUpdateItem:item atIndexPath:indexPath];
+    }
+    
+    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath];
+    if (filteredIndexPath)
+    {
+        [super dataSource:dataSource didUpdateItem:item atIndexPath:filteredIndexPath];
+    }
+}
+
+// TODO: Section Support
 
 #pragma mark - Class Methods
 

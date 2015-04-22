@@ -88,4 +88,14 @@
     return nil;
 }
 
+- (NSInteger)filteredIndexForItem:(id)item atUnfilteredIndex:(NSInteger)index predicate:(NSPredicate *)predicate
+{
+    return NSNotFound; // !!!
+}
+
+- (NSIndexPath *)filteredIndexPathForItem:(id)item atUnfilteredIndexPath:(NSIndexPath *)indexPath predicate:(NSPredicate *)predicate
+{
+    return nil; // !!!
+}
+
 @end

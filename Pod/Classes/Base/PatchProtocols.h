@@ -63,6 +63,8 @@
 - (id)filteredItemAtIndex:(NSInteger)index predicate:(NSPredicate *)predicate;
 - (id)filteredItemAtIndexPath:(NSIndexPath *)indexPath predicate:(NSPredicate *)predicate;
 - (NSUInteger)numberOfItemsInSection:(NSInteger)section matchingPredicate:(NSPredicate *)predicate;
+- (NSInteger)filteredIndexForItem:(id)item atUnfilteredIndex:(NSInteger)index predicate:(NSPredicate *)predicate;
+- (NSIndexPath *)filteredIndexPathForItem:(id)item atUnfilteredIndexPath:(NSIndexPath *)indexPath predicate:(NSPredicate *)predicate;
 
 @end
 
@@ -110,42 +112,42 @@
  *  @param dataSource Datasource
  *  @param indexPath  IndexPath of the item
  */
-- (void)dataSource:(id <PDSDataSource>)dataSource didInsertItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)dataSource:(id <PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath;
 /**
  *  The datasource removed an item
  *
  *  @param dataSource Datasource
  *  @param indexPath  IndexPath of the item
  */
-- (void)dataSource:(id <PDSDataSource>)dataSource didRemoveItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)dataSource:(id <PDSDataSource>)dataSource didRemoveItem:(id)item atIndexPath:(NSIndexPath *)indexPath;
 /**
  *  The datasource updated an item
  *
  *  @param dataSource Datasource
  *  @param indexPath  IndexPath of the item
  */
-- (void)dataSource:(id <PDSDataSource>)dataSource didUpdateItemAtIndexPath:(NSIndexPath *)indexPath;
+- (void)dataSource:(id <PDSDataSource>)dataSource didUpdateItem:(id)item atIndexPath:(NSIndexPath *)indexPath;
 /**
  *  The datasource inserted a section
  *
  *  @param dataSource Datasource
  *  @param indexPath  Index of the section
  */
-- (void)dataSource:(id <PDSDataSource>)dataSource didInsertSectionAtIndex:(NSInteger)index;
+- (void)dataSource:(id <PDSDataSource>)dataSource didInsertSection:(id)sectionInfo atIndex:(NSInteger)index;
 /**
  *  The datasource removed a section
  *
  *  @param dataSource Datasource
  *  @param indexPath  Index of the section
  */
-- (void)dataSource:(id <PDSDataSource>)dataSource didRemoveSectionAtIndex:(NSInteger)index;
+- (void)dataSource:(id <PDSDataSource>)dataSource didRemoveSection:(id)sectionInfo atIndex:(NSInteger)index;
 /**
  *  The datasource updated a section
  *
  *  @param dataSource Datasource
  *  @param indexPath  Index of the section
  */
-- (void)dataSource:(id <PDSDataSource>)dataSource didUpdateSectionAtIndex:(NSInteger)index;
+- (void)dataSource:(id <PDSDataSource>)dataSource didUpdateSection:(id)sectionInfo atIndex:(NSInteger)index;
 
 @end
 

@@ -24,7 +24,9 @@
 
 #ifdef PATCH_INCLUDES_COREDATA
 #import "PDSCoreDataSource.h"
+#import "PDSCoreDataSource+PDSFilterableDataSource.h"
 #endif
+
 #import "PDSArrayDataSource.h"
 #import "PDSDirectoryContentDataSource.h"
 
@@ -48,6 +50,7 @@
 #ifdef PATCH_INCLUDES_ICAROUSEL
 #import "PDSCarouselDataSource.h"
 #endif
+
 #import "PDSTableViewDataSource.h"
 #import "PDSCollectionViewDataSource.h"
 #import "PDSPageViewControllerDataSource.h"

@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 Bionic Monocle Pty Ltd. All rights reserved.
 //
 
-@import CoreData;
-
 #import "PDSCoreDataSource.h"
+
+#pragma mark - Private Header
+
+#import "PDSCoreDataSource+Private.h"
 
 #pragma mark - Composites
 
@@ -17,10 +19,6 @@
 @interface PDSCoreDataSource () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) id <PDSDataSourceChangeNotifier> changeNotifier;
-
-@property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) NSFetchRequest *fetchRequest;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -51,7 +49,7 @@
         self.context        = context;
         self.fetchRequest   = [NSFetchRequest fetchRequestWithEntityName:name];
         
-        _fetchRequest.sortDescriptors = sortDescriptors;
+        self.fetchRequest.sortDescriptors = sortDescriptors;
     }
     return self;
 }
@@ -60,32 +58,32 @@
 
 - (NSPredicate *)fetchPredicate
 {
-    return _fetchRequest.predicate;
+    return self.fetchRequest.predicate;
 }
 
 - (void)setFetchPredicate:(NSPredicate *)fetchPredicate
 {
-    _fetchRequest.predicate = fetchPredicate;
+    self.fetchRequest.predicate = fetchPredicate;
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (!_fetchedResultsController)
+    if (!self.fetchedResultsController)
     {
         // TODO: Revise this at a later stage for section use and caching for performance as needed
-        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:_fetchRequest
-                                                                            managedObjectContext:_context
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:self.fetchRequest
+                                                                            managedObjectContext:self.context
                                                                               sectionNameKeyPath:nil
                                                                                        cacheName:nil];
-        _fetchedResultsController.delegate = self;
+        self.fetchedResultsController.delegate = self;
         NSError *error = nil;
-        if (![_fetchedResultsController performFetch:&error])
+        if (![self.fetchedResultsController performFetch:&error])
         {
 #warning Error handling
             //DDLogError(@"Core Data fetch failed for %@ with error: %@", _fetchRequest, error);
         }
     }
-    return _fetchedResultsController;
+    return self.fetchedResultsController;
 }
 
 #pragma mark - PDSDataSource
@@ -108,12 +106,12 @@
 
 - (id)itemAtIndex:(NSInteger)index
 {
-    return _fetchedResultsController.fetchedObjects[index];
+    return self.fetchedResultsController.fetchedObjects[index];
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [_fetchedResultsController objectAtIndexPath:indexPath];
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
 - (void)reload
@@ -150,17 +148,17 @@
 {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [_changeNotifier dataSource:self didInsertItemAtIndexPath:newIndexPath];
+            [_changeNotifier dataSource:self didInsertItem:anObject atIndexPath:newIndexPath];
             break;
         case NSFetchedResultsChangeDelete:
-            [_changeNotifier dataSource:self didRemoveItemAtIndexPath:indexPath];
+            [_changeNotifier dataSource:self didRemoveItem:anObject atIndexPath:indexPath];
             break;
         case NSFetchedResultsChangeMove:
-            [_changeNotifier dataSource:self didRemoveItemAtIndexPath:indexPath];
-            [_changeNotifier dataSource:self didInsertItemAtIndexPath:newIndexPath];
+            [_changeNotifier dataSource:self didRemoveItem:anObject atIndexPath:indexPath];
+            [_changeNotifier dataSource:self didInsertItem:anObject atIndexPath:newIndexPath];
             break;
         case NSFetchedResultsChangeUpdate:
-            [_changeNotifier dataSource:self didUpdateItemAtIndexPath:indexPath];
+            [_changeNotifier dataSource:self didUpdateItem:anObject atIndexPath:indexPath];
             break;
         default:
             break;
@@ -171,16 +169,16 @@
 {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [_changeNotifier dataSource:self didInsertSectionAtIndex:sectionIndex];
+            [_changeNotifier dataSource:self didInsertSection:sectionInfo atIndex:sectionIndex];
             break;
         case NSFetchedResultsChangeDelete:
-            [_changeNotifier dataSource:self didRemoveSectionAtIndex:sectionIndex];
+            [_changeNotifier dataSource:self didRemoveSection:sectionInfo atIndex:sectionIndex];
             break;
         case NSFetchedResultsChangeMove:
-            //
+            // !!!
             break;
         case NSFetchedResultsChangeUpdate:
-            [_changeNotifier dataSource:self didUpdateSectionAtIndex:sectionIndex];
+            [_changeNotifier dataSource:self didUpdateSection:sectionInfo atIndex:sectionIndex];
             break;
         default:
             break;

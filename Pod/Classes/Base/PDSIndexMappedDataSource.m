@@ -8,7 +8,7 @@
 
 #import "PDSIndexMappedDataSource.h"
 
-#pragma mark - CocoaLumberjack
+// TODO: Integrate this with the filtered datasource system
 
 @implementation PDSIndexMappedDataSource
 
@@ -91,32 +91,32 @@
 
 #pragma mark - PDSDataSourceChangeListener
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
-    [super dataSource:self didInsertItemAtIndexPath:[self reverseMappedIndexPathFromIndexPath:indexPath]];
+    [super dataSource:self didInsertItem:item atIndexPath:[self reverseMappedIndexPathFromIndexPath:indexPath]];
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
-    [super dataSource:self didUpdateItemAtIndexPath:[self reverseMappedIndexPathFromIndexPath:indexPath]];
+    [super dataSource:self didUpdateItem:item atIndexPath:[self reverseMappedIndexPathFromIndexPath:indexPath]];
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
-    [super dataSource:self didRemoveItemAtIndexPath:[self reverseMappedIndexPathFromIndexPath:indexPath]];
+    [super dataSource:self didRemoveItem:item atIndexPath:[self reverseMappedIndexPathFromIndexPath:indexPath]];
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSectionAtIndex:(NSInteger)index
-{
-    // TODO
-}
-
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSection:(id)sectionInfo atIndex:(NSInteger)index
+{
+    // TODO
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }

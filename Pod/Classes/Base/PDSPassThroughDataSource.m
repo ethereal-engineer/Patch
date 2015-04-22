@@ -138,19 +138,19 @@
     [_changeNotifier dataSourceDidReload:self];
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
-    [_changeNotifier dataSource:self didInsertItemAtIndexPath:indexPath];
+    [_changeNotifier dataSource:self didInsertItem:item atIndexPath:indexPath];
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
-    [_changeNotifier dataSource:self didUpdateItemAtIndexPath:indexPath];
+    [_changeNotifier dataSource:self didUpdateItem:item atIndexPath:indexPath];
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
-    [_changeNotifier dataSource:self didRemoveItemAtIndexPath:indexPath];
+    [_changeNotifier dataSource:self didRemoveItem:item atIndexPath:indexPath];
 }
 
 - (void)dataSource:(id<PDSDataSource>)dataSource didInsertSectionAtIndex:(NSInteger)index

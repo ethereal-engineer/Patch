@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.subspec 'CoreData' do |ss|
     ss.dependency 'Patch/base'
     ss.frameworks = 'CoreData'
-    ss.source_files = 'Pod/Classes/Extensions/PDSCoreDataSource.{m,h}'
+    ss.source_files = 'Pod/Classes/Extensions/PDSCoreDataSource**.{m,h}'
     ss.xcconfig = { 'OTHER_CFLAGS' => '-DPATCH_INCLUDES_COREDATA' }
   end
 

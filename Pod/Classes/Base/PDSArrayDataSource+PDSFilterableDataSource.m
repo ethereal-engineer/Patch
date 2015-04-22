@@ -36,4 +36,20 @@
     return [self filteredItemAtIndex:indexPath.item predicate:predicate];
 }
 
+- (NSInteger)filteredIndexForItem:(id)item atUnfilteredIndex:(NSInteger)index predicate:(NSPredicate *)predicate
+{
+    return [[self.array filteredArrayUsingPredicate:predicate] indexOfObject:item];
+}
+
+- (NSIndexPath *)filteredIndexPathForItem:(id)item atUnfilteredIndexPath:(NSIndexPath *)indexPath predicate:(NSPredicate *)predicate
+{
+    // Array has only one section, so it's the same as above
+    NSInteger index = [self filteredIndexForItem:item atUnfilteredIndex:indexPath.item predicate:predicate];
+    if (index == NSNotFound)
+    {
+        return nil;
+    }
+    return [NSIndexPath indexPathForItem:index inSection:0];
+}
+
 @end
