@@ -1,13 +1,25 @@
 PODS:
   - Expecta (0.3.2)
+  - iCarousel (1.8.1)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core (= 2.2)
+  - MagicalRecord/Core (2.2)
   - Patch (0.1.0):
     - Patch/base (= 0.1.0)
   - Patch/base (0.1.0)
+  - Patch/CoreData (0.1.0):
+    - Patch/base
+  - Patch/iCarousel (0.1.0):
+    - iCarousel
+    - Patch/base
   - Specta (0.5.0)
 
 DEPENDENCIES:
   - Expecta
+  - MagicalRecord
   - Patch (from `../`)
+  - Patch/CoreData (from `../`)
+  - Patch/iCarousel (from `../`)
   - Specta
 
 EXTERNAL SOURCES:
@@ -16,7 +28,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 8c507baf13211207b1e9d0a741480600e6b4ed15
-  Patch: d983a6b1b169034ef2272e23a09a497fab8bb703
+  iCarousel: dace1cb858e3f4dc2614bee3201041247f82feda
+  MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
+  Patch: 16ba861d518b087e3fd69834699d83119bd8d6ce
   Specta: eb90708ed77569bbda089f8ead10bb99b8e9489e
 
 COCOAPODS: 0.36.0

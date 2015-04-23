@@ -2,11 +2,18 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Patch', :exclusive => true do
   pod "Patch", :path => "../"
+  pod "Patch/CoreData", :path => "../"
+  pod "Patch/iCarousel", :path => "../"
+
+  pod 'MagicalRecord'
 end
 
 target 'Tests', :exclusive => true do
   pod "Patch", :path => "../"
-
+  pod "Patch/CoreData", :path => "../"
+  pod "Patch/iCarousel", :path => "../"
+  
+  pod 'MagicalRecord'
   pod 'Specta'
   pod 'Expecta'
 end

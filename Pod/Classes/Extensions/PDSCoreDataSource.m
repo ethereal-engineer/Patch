@@ -19,6 +19,9 @@
 @interface PDSCoreDataSource () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) id <PDSDataSourceChangeNotifier> changeNotifier;
+@property (nonatomic, strong) NSManagedObjectContext            *context;
+@property (nonatomic, strong) NSFetchRequest                    *fetchRequest;
+@property (nonatomic, strong) NSFetchedResultsController        *fetchedResultsController;
 
 @end
 
@@ -68,22 +71,22 @@
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (!self.fetchedResultsController)
+    if (!_fetchedResultsController)
     {
         // TODO: Revise this at a later stage for section use and caching for performance as needed
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:self.fetchRequest
                                                                             managedObjectContext:self.context
                                                                               sectionNameKeyPath:nil
                                                                                        cacheName:nil];
-        self.fetchedResultsController.delegate = self;
+        _fetchedResultsController.delegate = self;
         NSError *error = nil;
-        if (![self.fetchedResultsController performFetch:&error])
+        if (![_fetchedResultsController performFetch:&error])
         {
 #warning Error handling
             //DDLogError(@"Core Data fetch failed for %@ with error: %@", _fetchRequest, error);
         }
     }
-    return self.fetchedResultsController;
+    return _fetchedResultsController;
 }
 
 #pragma mark - PDSDataSource

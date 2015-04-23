@@ -47,7 +47,7 @@
         ]
       },
       "frameworks": "CoreData",
-      "source_files": "Pod/Classes/Extensions/PDSCoreDataSource.{m,h}",
+      "source_files": "Pod/Classes/Extensions/PDSCoreDataSource**.{m,h}",
       "xcconfig": {
         "OTHER_CFLAGS": "-DPATCH_INCLUDES_COREDATA"
       }

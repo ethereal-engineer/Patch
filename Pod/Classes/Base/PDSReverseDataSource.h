@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Bionic Monocle Pty Ltd. All rights reserved.
 //
 
-#import "PDSPassThroughDataSource.h"
+#import "PDSIndexMappedDataSource.h"
 
 #warning FINISH ME
 /**
  *  INCOMPLETE: Reverses sections and items in a datasource
  */
 
-@interface PDSReverseDataSource : PDSPassThroughDataSource
+@interface PDSReverseDataSource : PDSIndexMappedDataSource
 
 @end

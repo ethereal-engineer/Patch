@@ -23,6 +23,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		660B2AFC1AE8EC4D003A199B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 660B2AFA1AE8EC4D003A199B /* Model.xcdatamodeld */; };
+		660B2AFF1AE8ED34003A199B /* PDSDemoPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 660B2AFE1AE8ED34003A199B /* PDSDemoPerson.m */; };
 		6681461B1ABFF7010009EAA5 /* PDSDemoDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681461A1ABFF7010009EAA5 /* PDSDemoDataFactory.m */; };
 		6683FC5A1AE5CDCD004284B4 /* PDSDemoMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6683FC591AE5CDCD004284B4 /* PDSDemoMenuItem.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,9 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		660B2AFB1AE8EC4D003A199B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		660B2AFD1AE8ED34003A199B /* PDSDemoPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSDemoPerson.h; sourceTree = "<group>"; };
+		660B2AFE1AE8ED34003A199B /* PDSDemoPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSDemoPerson.m; sourceTree = "<group>"; };
 		668146191ABFF7010009EAA5 /* PDSDemoDataFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PDSDemoDataFactory.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6681461A1ABFF7010009EAA5 /* PDSDemoDataFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PDSDemoDataFactory.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6683FC581AE5CDCD004284B4 /* PDSDemoMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSDemoMenuItem.h; sourceTree = "<group>"; };
@@ -137,6 +142,8 @@
 		6003F593195388D20070C39A /* Patch */ = {
 			isa = PBXGroup;
 			children = (
+				660B2AFD1AE8ED34003A199B /* PDSDemoPerson.h */,
+				660B2AFE1AE8ED34003A199B /* PDSDemoPerson.m */,
 				6683FC5C1AE5D8BC004284B4 /* PDSDemoProtocols.h */,
 				668146191ABFF7010009EAA5 /* PDSDemoDataFactory.h */,
 				6681461A1ABFF7010009EAA5 /* PDSDemoDataFactory.m */,
@@ -149,6 +156,7 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				6683FC581AE5CDCD004284B4 /* PDSDemoMenuItem.h */,
 				6683FC591AE5CDCD004284B4 /* PDSDemoMenuItem.m */,
+				660B2AFA1AE8EC4D003A199B /* Model.xcdatamodeld */,
 			);
 			path = Patch;
 			sourceTree = "<group>";
@@ -369,11 +377,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660B2AFF1AE8ED34003A199B /* PDSDemoPerson.m in Sources */,
 				6003F59E195388D20070C39A /* PDSDemoAppDelegate.m in Sources */,
 				6681461B1ABFF7010009EAA5 /* PDSDemoDataFactory.m in Sources */,
 				6683FC5A1AE5CDCD004284B4 /* PDSDemoMenuItem.m in Sources */,
 				6003F5A7195388D20070C39A /* PDSDemoTableViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				660B2AFC1AE8EC4D003A199B /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +608,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		660B2AFA1AE8EC4D003A199B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				660B2AFB1AE8EC4D003A199B /* Model.xcdatamodel */,
+			);
+			currentVersion = 660B2AFB1AE8EC4D003A199B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6003F582195388D10070C39A /* Project object */;
 }

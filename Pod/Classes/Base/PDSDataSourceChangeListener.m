@@ -60,41 +60,41 @@
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     if (_dataSourceDidInsertItemBlock)
     {
-        _dataSourceDidInsertItemBlock(dataSource, indexPath);
+        _dataSourceDidInsertItemBlock(dataSource, item, indexPath);
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     if (_dataSourceDidRemoveItemBlock)
     {
-        _dataSourceDidRemoveItemBlock(dataSource, indexPath);
+        _dataSourceDidRemoveItemBlock(dataSource, item, indexPath);
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     if (_dataSourceDidUpdateItemBlock)
     {
-        _dataSourceDidUpdateItemBlock(dataSource, indexPath);
+        _dataSourceDidUpdateItemBlock(dataSource, item, indexPath);
     }
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }

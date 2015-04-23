@@ -14,9 +14,6 @@
 
 @interface PDSDemoMenuItem : NSObject <PDSDemoMenuItem>
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
-
 + (instancetype)menuItemWithTitle:(NSString *)title subtitle:(NSString *)subtitle;
 
 @end

@@ -10,6 +10,8 @@
 
 @implementation PDSDemoMenuItem
 
+@synthesize title, subtitle;
+
 + (instancetype)menuItemWithTitle:(NSString *)title subtitle:(NSString *)subtitle
 {
     PDSDemoMenuItem *item = nil;

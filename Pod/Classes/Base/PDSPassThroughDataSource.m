@@ -114,6 +114,11 @@
     return [_dataSource itemAtIndexPath:indexPath];
 }
 
+- (NSArray *)itemsInSection:(NSUInteger)section
+{
+    return [_dataSource itemsInSection:section];
+}
+
 - (void)reload
 {
     [_dataSource reload];
@@ -153,17 +158,17 @@
     [_changeNotifier dataSource:self didRemoveItem:item atIndexPath:indexPath];
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }
 
-- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSectionAtIndex:(NSInteger)index
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSection:(id)sectionInfo atIndex:(NSInteger)index
 {
     // TODO
 }

@@ -105,7 +105,7 @@
         return;
     }
 
-    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath];
+    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath predicate:[self activePredicate]];
     if (filteredIndexPath)
     {
         [super dataSource:dataSource didInsertItem:item atIndexPath:filteredIndexPath];
@@ -119,7 +119,7 @@
         [super dataSource:dataSource didRemoveItem:item atIndexPath:indexPath];
     }
     
-    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath];
+    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath predicate:[self activePredicate]];
     if (filteredIndexPath)
     {
         [super dataSource:dataSource didRemoveItem:item atIndexPath:filteredIndexPath];
@@ -133,7 +133,7 @@
         [super dataSource:dataSource didUpdateItem:item atIndexPath:indexPath];
     }
     
-    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath];
+    NSIndexPath *filteredIndexPath = [(id<PDSFilterableDataSource>)self.dataSource filteredIndexPathForItem:item atUnfilteredIndexPath:indexPath predicate:[self activePredicate]];
     if (filteredIndexPath)
     {
         [super dataSource:dataSource didUpdateItem:item atIndexPath:filteredIndexPath];

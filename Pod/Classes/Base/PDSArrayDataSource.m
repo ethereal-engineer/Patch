@@ -42,6 +42,8 @@
     return self;
 }
 
+// TODO: equality? hash?
+
 #pragma mark - PDSDataSource
 
 - (NSUInteger)numberOfItems

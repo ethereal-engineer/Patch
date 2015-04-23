@@ -130,6 +130,13 @@
     return [self itemAtIndex:indexPath.item];
 }
 
+- (NSArray *)itemsInSection:(NSUInteger)section
+{
+    NSAssert(section == 0, @"This datasource does not (yet) support sections");
+    NSAssert(NO, @"Not implemented");
+    return nil;
+}
+
 - (void)reload
 {
     [_dataSources makeObjectsPerformSelector:@selector(reload)];

@@ -12,8 +12,8 @@
 
 @protocol PDSDemoMenuItem <NSObject>
 
-@property (nonatomic, readonly) NSString *title;
-@property (nonatomic, readonly) NSString *subtitle;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 
 @end
 
