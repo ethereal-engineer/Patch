@@ -13,7 +13,7 @@
 #import "PDSCoreDataSource+Private.h"
 
 /**
- *  Non-optimised...FWIW
+ *  Non-optimised...FWIW - also, not core data thread-safe yet!
  */
 
 @interface PDSCoreDataSource (PDSFilterableDataSource_Internal)
@@ -53,7 +53,7 @@
 
 - (NSIndexPath *)filteredIndexPathForItem:(id)item atUnfilteredIndexPath:(NSIndexPath *)indexPath predicate:(NSPredicate *)predicate
 {
-    NSInteger index = [self filteredIndexForItem:item atUnfilteredIndex:nil predicate:predicate];
+    NSInteger index = [self filteredIndexForItem:item atUnfilteredIndex:NSNotFound predicate:predicate];
     if (index == NSNotFound)
     {
         return nil;

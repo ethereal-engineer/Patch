@@ -117,6 +117,12 @@
     return [self.fetchedResultsController objectAtIndexPath:indexPath];
 }
 
+- (NSArray *)itemsInSection:(NSUInteger)section
+{
+    id <NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
+    return sectionInfo.objects;
+}
+
 - (void)reload
 {
     // Relies on dependants to trigger re-population lazily
