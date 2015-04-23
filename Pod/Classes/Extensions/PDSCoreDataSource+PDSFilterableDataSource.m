@@ -48,12 +48,17 @@
 
 - (NSInteger)filteredIndexForItem:(id)item atUnfilteredIndex:(NSInteger)index predicate:(NSPredicate *)predicate
 {
-    
+    return [[self.fetchedResultsController.fetchedObjects filteredArrayUsingPredicate:predicate] indexOfObject:item];
 }
 
 - (NSIndexPath *)filteredIndexPathForItem:(id)item atUnfilteredIndexPath:(NSIndexPath *)indexPath predicate:(NSPredicate *)predicate
 {
-    
+    NSInteger index = [self filteredIndexForItem:item atUnfilteredIndex:nil predicate:predicate];
+    if (index == NSNotFound)
+    {
+        return nil;
+    }
+    return [NSIndexPath indexPathForItem:index inSection:indexPath.section];
 }
 
 @end
