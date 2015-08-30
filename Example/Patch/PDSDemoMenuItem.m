@@ -10,9 +10,9 @@
 
 @implementation PDSDemoMenuItem
 
-@synthesize title, subtitle;
+@synthesize title, subtitle, userInfo;
 
-+ (instancetype)menuItemWithTitle:(NSString *)title subtitle:(NSString *)subtitle
++ (instancetype)menuItemWithTitle:(NSString *)title subtitle:(NSString *)subtitle userInfo:(NSDictionary *)userInfo
 {
     PDSDemoMenuItem *item = nil;
     @autoreleasepool
@@ -20,8 +20,14 @@
         item = [[PDSDemoMenuItem alloc] init];
         item.title      = title;
         item.subtitle   = subtitle;
+        item.userInfo   = userInfo;
     }
     return item;
+}
+
++ (instancetype)menuItemWithTitle:(NSString *)title subtitle:(NSString *)subtitle
+{
+    return [self menuItemWithTitle:title subtitle:subtitle userInfo:nil];
 }
 
 @end

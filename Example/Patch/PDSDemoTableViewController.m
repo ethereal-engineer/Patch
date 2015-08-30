@@ -29,14 +29,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-//    id <PDSDataSource> compositeTest = [PDSDemoDataFactory filteredCompositeDataSource];
-//    
-//    NSLog(@"Number of items in the composite filter is: %lu", compositeTest.numberOfItems);
-//    for (int i = 0; i < compositeTest.numberOfItems; i++)
-//    {
-//        id item = [compositeTest itemAtIndex:i];
-//        NSLog(@"Item %lu is: %@", (long)i, item);
-//    }
     self.tableViewDataSource = [PDSTableViewDataSource dataSourceWithDataSource:[PDSDemoDataFactory mainMenuItemsDataSource]];
     // Set how the cells will react
     _tableViewDataSource.cellAtIndexPathBlock = ^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath, id itemAtIndex)
@@ -61,6 +53,21 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id <PDSDemoMenuItem> menuItem = [self.tableViewDataSource.dataSource itemAtIndexPath:indexPath];
+    NSString *storyboardName = menuItem.userInfo[PDSDemoStoryboardNameKey];
+    if (storyboardName)
+    {
+        UIViewController *viewController = [[UIStoryboard storyboardWithName:storyboardName bundle:nil] instantiateInitialViewController];
+        [self showViewController:viewController sender:self];
+    }
+    else
+    {
+        NSLog(@"Demo portion for menu item %@ is not yet implemented. Sorry!", menuItem.title);
+    }
 }
 
 @end

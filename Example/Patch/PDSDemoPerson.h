@@ -1,9 +1,9 @@
 //
 //  PDSDemoPerson.h
-//  Patch
+//  
 //
-//  Created by Adam Iredale on 23/04/2015.
-//  Copyright (c) 2015 Adam Iredale. All rights reserved.
+//  Created by Adam Iredale on 27/05/2015.
+//
 //
 
 #import <Foundation/Foundation.h>
@@ -12,7 +12,11 @@
 
 @interface PDSDemoPerson : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * age;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * profession;
+@property (nonatomic, retain) NSNumber * drinkPreference;   // 0 - Coffee, 1 - Tea, 2 - Other
+@property (nonatomic, retain) NSNumber * courseProgress;    // 0.0 - 1.0
+@property (nonatomic, retain) NSNumber * isHidden;          // BOOL
 
 @end

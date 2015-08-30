@@ -27,6 +27,12 @@
 		660B2AFF1AE8ED34003A199B /* PDSDemoPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 660B2AFE1AE8ED34003A199B /* PDSDemoPerson.m */; };
 		6681461B1ABFF7010009EAA5 /* PDSDemoDataFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6681461A1ABFF7010009EAA5 /* PDSDemoDataFactory.m */; };
 		6683FC5A1AE5CDCD004284B4 /* PDSDemoMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6683FC591AE5CDCD004284B4 /* PDSDemoMenuItem.m */; };
+		66D74A8E1B1410E300FF0697 /* PDSDemoPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D74A8D1B1410E300FF0697 /* PDSDemoPageViewController.m */; };
+		66D74A901B14116F00FF0697 /* PDSDemoPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D74A8F1B14116F00FF0697 /* PDSDemoPageViewController.storyboard */; };
+		66D74A941B143E2800FF0697 /* PDSDemoPageViewControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D74A931B143E2800FF0697 /* PDSDemoPageViewControllerTableViewController.m */; };
+		66D74A9A1B15557500FF0697 /* PDSDemoContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D74A991B15557500FF0697 /* PDSDemoContentViewController.m */; };
+		66D74A9E1B15BEA000FF0697 /* SampleCollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66D74A9D1B15BEA000FF0697 /* SampleCollectionView.storyboard */; };
+		66D74AA11B15C3EA00FF0697 /* PDSDemoSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D74AA01B15C3EA00FF0697 /* PDSDemoSampleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +79,16 @@
 		6683FC581AE5CDCD004284B4 /* PDSDemoMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDSDemoMenuItem.h; sourceTree = "<group>"; };
 		6683FC591AE5CDCD004284B4 /* PDSDemoMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDSDemoMenuItem.m; sourceTree = "<group>"; };
 		6683FC5C1AE5D8BC004284B4 /* PDSDemoProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDSDemoProtocols.h; sourceTree = "<group>"; };
+		66D74A8C1B1410E300FF0697 /* PDSDemoPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSDemoPageViewController.h; path = "View Controllers/PDSDemoPageViewController.h"; sourceTree = "<group>"; };
+		66D74A8D1B1410E300FF0697 /* PDSDemoPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDSDemoPageViewController.m; path = "View Controllers/PDSDemoPageViewController.m"; sourceTree = "<group>"; };
+		66D74A8F1B14116F00FF0697 /* PDSDemoPageViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PDSDemoPageViewController.storyboard; path = "View Controllers/PDSDemoPageViewController.storyboard"; sourceTree = "<group>"; };
+		66D74A921B143E2800FF0697 /* PDSDemoPageViewControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSDemoPageViewControllerTableViewController.h; path = "View Controllers/PDSDemoPageViewControllerTableViewController.h"; sourceTree = "<group>"; };
+		66D74A931B143E2800FF0697 /* PDSDemoPageViewControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDSDemoPageViewControllerTableViewController.m; path = "View Controllers/PDSDemoPageViewControllerTableViewController.m"; sourceTree = "<group>"; };
+		66D74A981B15557500FF0697 /* PDSDemoContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSDemoContentViewController.h; path = "View Controllers/PDSDemoContentViewController.h"; sourceTree = "<group>"; };
+		66D74A991B15557500FF0697 /* PDSDemoContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDSDemoContentViewController.m; path = "View Controllers/PDSDemoContentViewController.m"; sourceTree = "<group>"; };
+		66D74A9D1B15BEA000FF0697 /* SampleCollectionView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SampleCollectionView.storyboard; path = "View Controllers/SampleCollectionView.storyboard"; sourceTree = "<group>"; };
+		66D74A9F1B15C3EA00FF0697 /* PDSDemoSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDSDemoSampleViewController.h; path = "View Controllers/PDSDemoSampleViewController.h"; sourceTree = "<group>"; };
+		66D74AA01B15C3EA00FF0697 /* PDSDemoSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDSDemoSampleViewController.m; path = "View Controllers/PDSDemoSampleViewController.m"; sourceTree = "<group>"; };
 		7635ED56816EA0F5AA918443 /* Patch.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Patch.podspec; path = ../Patch.podspec; sourceTree = "<group>"; };
 		80628B7A208321333F22D7D6 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8A419A3D1CB418D649A81FE2 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +158,7 @@
 		6003F593195388D20070C39A /* Patch */ = {
 			isa = PBXGroup;
 			children = (
+				66D74A8B1B14107300FF0697 /* View Controllers */,
 				660B2AFD1AE8ED34003A199B /* PDSDemoPerson.h */,
 				660B2AFE1AE8ED34003A199B /* PDSDemoPerson.m */,
 				6683FC5C1AE5D8BC004284B4 /* PDSDemoProtocols.h */,
@@ -199,6 +216,39 @@
 				FB0AC15462EAFB8203689B00 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		66D74A8B1B14107300FF0697 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				66D74A9C1B15BE1000FF0697 /* Collection View Sample Demo */,
+				66D74A9B1B15B1DD00FF0697 /* Page View Controller Demo */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		66D74A9B1B15B1DD00FF0697 /* Page View Controller Demo */ = {
+			isa = PBXGroup;
+			children = (
+				66D74A8C1B1410E300FF0697 /* PDSDemoPageViewController.h */,
+				66D74A8D1B1410E300FF0697 /* PDSDemoPageViewController.m */,
+				66D74A8F1B14116F00FF0697 /* PDSDemoPageViewController.storyboard */,
+				66D74A921B143E2800FF0697 /* PDSDemoPageViewControllerTableViewController.h */,
+				66D74A931B143E2800FF0697 /* PDSDemoPageViewControllerTableViewController.m */,
+				66D74A981B15557500FF0697 /* PDSDemoContentViewController.h */,
+				66D74A991B15557500FF0697 /* PDSDemoContentViewController.m */,
+			);
+			name = "Page View Controller Demo";
+			sourceTree = "<group>";
+		};
+		66D74A9C1B15BE1000FF0697 /* Collection View Sample Demo */ = {
+			isa = PBXGroup;
+			children = (
+				66D74A9D1B15BEA000FF0697 /* SampleCollectionView.storyboard */,
+				66D74A9F1B15C3EA00FF0697 /* PDSDemoSampleViewController.h */,
+				66D74AA01B15C3EA00FF0697 /* PDSDemoSampleViewController.m */,
+			);
+			name = "Collection View Sample Demo";
 			sourceTree = "<group>";
 		};
 		ABC632F551EF4568475A9C70 /* Pods */ = {
@@ -294,8 +344,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				66D74A9E1B15BEA000FF0697 /* SampleCollectionView.storyboard in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				66D74A901B14116F00FF0697 /* PDSDemoPageViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,11 +430,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				660B2AFF1AE8ED34003A199B /* PDSDemoPerson.m in Sources */,
+				66D74A9A1B15557500FF0697 /* PDSDemoContentViewController.m in Sources */,
+				66D74AA11B15C3EA00FF0697 /* PDSDemoSampleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* PDSDemoAppDelegate.m in Sources */,
 				6681461B1ABFF7010009EAA5 /* PDSDemoDataFactory.m in Sources */,
 				6683FC5A1AE5CDCD004284B4 /* PDSDemoMenuItem.m in Sources */,
 				6003F5A7195388D20070C39A /* PDSDemoTableViewController.m in Sources */,
+				66D74A941B143E2800FF0697 /* PDSDemoPageViewControllerTableViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				66D74A8E1B1410E300FF0697 /* PDSDemoPageViewController.m in Sources */,
 				660B2AFC1AE8EC4D003A199B /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -132,9 +132,8 @@
 
 - (void)dataSource:(id<PDSDataSource>)dataSource didChangeEmptyState:(BOOL)isEmpty
 {
-    
+    // TODO: later
 }
-
 
 #pragma mark - Class Convenience
 

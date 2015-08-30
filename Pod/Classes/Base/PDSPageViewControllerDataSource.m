@@ -80,9 +80,10 @@
 
 - (void)initialiseViewControllers
 {
+    NSArray *oldViewControllers = self.viewControllers ?: @[];
     self.viewControllers = @[];
     [self mapDataItemsToViewControllers];
-    [self updatePageViewControllerFromViewControllers:@[] toViewControllers:_viewControllers];
+    [self updatePageViewControllerFromViewControllers:oldViewControllers toViewControllers:_viewControllers];
 }
 
 - (void)mapDataItemsToViewControllers
@@ -96,36 +97,38 @@
 
 - (void)updatePageViewControllerFromViewControllers:(NSArray *)fromVCs toViewControllers:(NSArray *)toVCs
 {
+    UIViewController *currentViewController             = _pageViewController.viewControllers.firstObject;
+    NSInteger sourceIndexOfCurrentViewController        = [fromVCs indexOfObject:currentViewController];
+    
+    // Visible behaviour on change:
+    
+    // - If current view controller exists in the destination, stay on it
+    UIViewController *viewController = currentViewController;
+
     if (toVCs.count == 0)
     {
-        _pageViewController.singleViewController = _placeholderViewController;
-        return;
+        // - No view controllers? Show placeholder
+        viewController = _placeholderViewController;
     }
-    
-    UIViewController *currentViewController = _pageViewController.viewControllers.firstObject;
-    NSInteger indexOfCurrentViewController  = [fromVCs indexOfObject:currentViewController];
-    
-    // if no items, show the placeholder
-    UIViewController *viewController = _placeholderViewController;
-    
-    // if the current view controller was not a data view controller (i.e. not found in from array), show the first toVC
-    if (indexOfCurrentViewController == NSNotFound)
+    else if (!currentViewController)
     {
+        // - If there is no current controller (first time?), use the first from the destination set
         viewController = toVCs.firstObject;
     }
-    else if ([toVCs containsObject:currentViewController] == NO)
+    else if (![toVCs containsObject:currentViewController])
     {
-        // if the current view controller was a data view controller
-        // but doesn't exist in the to, show the next valid view controller
-        if (toVCs.count > indexOfCurrentViewController)
+        // - If not, and there is another view controller at its index, show that
+        if (sourceIndexOfCurrentViewController < toVCs.count)
         {
-            viewController = toVCs[indexOfCurrentViewController];
+            viewController = toVCs[sourceIndexOfCurrentViewController];
         }
         else
         {
+            // - Otherwise, show nearest view controller
             viewController = toVCs.lastObject;
         }
     }
+    
     _pageViewController.singleViewController = viewController;
 }
 
@@ -203,6 +206,18 @@
 
 - (void)dataSourceDidChange:(id<PDSDataSource>)dataSource
 {
+    // Process updates first
+    for (NSIndexPath *indexPath in _updatedIndexPaths)
+    {
+        [self configureViewControllerAtIndex:indexPath.item];
+    }
+    
+    // If that's all there is then do no more
+    if (!_removedIndexPaths.count && !_insertedIndexPaths.count)
+    {
+        return;
+    }
+    
     NSArray         *preChangeViewControllers   = _viewControllers;
     NSMutableArray  *mutableViewControllers     = [_viewControllers mutableCopy];
     
@@ -225,9 +240,7 @@
     // Update the properties before the configuration pass (I'd prefer better than this)
     self.viewControllers = [NSArray arrayWithArray:mutableViewControllers];
     
-    // Then a configuration pass for all inserts and updates
-    NSArray *insertedOrUpdatedIndexPaths = [_insertedIndexPaths arrayByAddingObjectsFromArray:_updatedIndexPaths];
-    for (NSIndexPath *indexPath in insertedOrUpdatedIndexPaths)
+     for (NSIndexPath *indexPath in _insertedIndexPaths)
     {
         [self configureViewControllerAtIndex:indexPath.item];
     }

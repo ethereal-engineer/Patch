@@ -12,8 +12,9 @@
 
 @protocol PDSDemoMenuItem <NSObject>
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, copy)     NSString *title;
+@property (nonatomic, copy)     NSString *subtitle;
+@property (nonatomic, strong)   NSDictionary *userInfo;
 
 @end
 

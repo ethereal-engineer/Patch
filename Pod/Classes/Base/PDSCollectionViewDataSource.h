@@ -13,6 +13,23 @@
 #import "PatchProtocols.h"
 
 @interface PDSCollectionViewDataSource : NSObject <UICollectionViewDataSource, PDSDataSourceChangeListener>
+/**
+ *  Represents UICollectionViewDataSource protocol's -collectionView:cellForItemAtIndexPath: call, with the addition of
+ *  the data item at that index path
+ */
+@property (nonatomic, copy) UICollectionViewCell *(^cellAtIndexPathBlock)(UICollectionView *collectionView, NSIndexPath *indexPath, id itemAtIndexPath);
+/**
+ *  Designated initializer
+ *
+ *  @param dataSource PDSDataSource upon which this table datasource relies
+ *
+ *  @return An instance of PDSTableViewDataSource
+ */
+- (instancetype)initWithDataSource:(id <PDSDataSource>)dataSource NS_DESIGNATED_INITIALIZER;
+/**
+ *  Convenience initializer
+ */
++ (instancetype)dataSourceWithDataSource:(id <PDSDataSource>)dataSource;
 
 @end
 

@@ -88,4 +88,56 @@
     return self.numberOfItems;
 }
 
+#pragma mark - PDSDataSourceChangeListener
+
+/**
+ *  If there is any change to the underlying datasource, the datasource must, itself, completely
+ *  recompute/reload. I'm sure there's a better way to do this, but for now, this is it.
+ */
+
+- (void)dataSourceWillChange:(id<PDSDataSource>)dataSource
+{
+    // Purposeful blank here
+}
+
+- (void)dataSourceDidChange:(id<PDSDataSource>)dataSource
+{
+    [self.changeNotifier dataSourceDidReload:self];
+}
+
+- (void)dataSourceDidReload:(id<PDSDataSource>)dataSource
+{
+    [self.changeNotifier dataSourceDidReload:self];
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
+{
+    // Purposeful blank here
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateItem:(id)item atIndexPath:(NSIndexPath *)indexPath
+{
+    // Purposeful blank here
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveItem:(id)item atIndexPath:(NSIndexPath *)indexPath
+{
+    // Purposeful blank here
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didInsertSection:(id)sectionInfo atIndex:(NSInteger)index
+{
+    // Purposeful blank here
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSection:(id)sectionInfo atIndex:(NSInteger)index
+{
+    // Purposeful blank here
+}
+
+- (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSection:(id)sectionInfo atIndex:(NSInteger)index
+{
+    // Purposeful blank here
+}
+
 @end

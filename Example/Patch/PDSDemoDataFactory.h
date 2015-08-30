@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ *  UserInfo key for storyboard file name
+ */
+static NSString *const PDSDemoStoryboardNameKey = @"PDSDemoStoryboardNameKey";
+
 @interface PDSDemoDataFactory : NSObject
 
 /**

@@ -18,6 +18,9 @@
 @property (nonatomic, copy) void (^dataSourceDidChangeBlock)(id <PDSDataSource> dataSource);
 @property (nonatomic, copy) void (^dataSourceDidReloadBlock)(id <PDSDataSource> dataSource);
 
+@property (nonatomic, copy) void (^dataSourceWillStartLoadingBlock)(id <PDSDataSource> dataSource);
+@property (nonatomic, copy) void (^dataSourceDidStopLoadingBlock)(id <PDSDataSource> dataSource, NSError *error);
+
 @property (nonatomic, copy) void (^dataSourceDidInsertItemBlock)(id <PDSDataSource> dataSource, id item, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^dataSourceDidUpdateItemBlock)(id <PDSDataSource> dataSource, id item, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^dataSourceDidRemoveItemBlock)(id <PDSDataSource> dataSource, id item, NSIndexPath *indexPath);

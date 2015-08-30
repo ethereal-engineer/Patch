@@ -27,7 +27,12 @@
 #import "PDSCoreDataSource+PDSFilterableDataSource.h"
 #endif
 
+#ifdef PATCH_INCLUDES_RMSTORE
+#import "PDSRMStoreDataSource.h"
+#endif
+
 #import "PDSArrayDataSource.h"
+#import "PDSMutableArrayDataSource.h"
 #import "PDSDirectoryContentDataSource.h"
 
 

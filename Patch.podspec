@@ -28,6 +28,13 @@ Pod::Spec.new do |s|
     ss.xcconfig = { 'OTHER_CFLAGS' => '-DPATCH_INCLUDES_ICAROUSEL' }
   end
 
+  s.subspec 'RMStore' do |ss|
+    ss.dependency 'Patch/base'
+    ss.dependency 'RMStore'
+    ss.source_files = 'Pod/Classes/Extensions/PDSRMStoreDataSource.{m,h}'
+    ss.xcconfig = { 'OTHER_CFLAGS' => '-DPATCH_INCLUDES_RMSTORE' }
+  end
+
   s.subspec 'CoreData' do |ss|
     ss.dependency 'Patch/base'
     ss.frameworks = 'CoreData'

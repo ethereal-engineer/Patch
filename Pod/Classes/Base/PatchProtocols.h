@@ -11,6 +11,10 @@
 
 @protocol PDSDataSource <NSObject>
 /**
+ *  YES if the datasource is busy bringing in data (e.g. web requests)
+ */
+@property (nonatomic, readonly) BOOL isLoading;
+/**
  *  Number of sections in the datasource
  */
 @property (nonatomic, readonly) NSUInteger numberOfSections;
@@ -106,6 +110,20 @@
  *  @param dataSource Datasource
  */
 - (void)dataSourceDidReload:(id <PDSDataSource>)dataSource;
+/**
+ *  The datasource will begin to load
+ *
+ *  @param dataSource Datasource
+ */
+- (void)dataSourceWillStartLoading:(id <PDSDataSource>)dataSource;
+/**
+ *  The datasource stopped loading - either because it was complete or because it encountered
+ *  an error.
+ *
+ *  @param dataSource Datasource
+ *  @param error      Nil if loading completed successfully, else the error as to why it did not
+ */
+- (void)dataSourceDidStopLoading:(id <PDSDataSource>)dataSource error:(NSError *)error;
 /**
  *  The datasource inserted an item
  *

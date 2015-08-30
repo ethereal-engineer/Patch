@@ -60,6 +60,22 @@
     }
 }
 
+- (void)dataSourceWillStartLoading:(id<PDSDataSource>)dataSource
+{
+    if (_dataSourceWillStartLoadingBlock)
+    {
+        _dataSourceWillStartLoadingBlock(dataSource);
+    }
+}
+
+- (void)dataSourceDidStopLoading:(id<PDSDataSource>)dataSource error:(NSError *)error
+{
+    if (_dataSourceDidStopLoadingBlock)
+    {
+        _dataSourceDidStopLoadingBlock(dataSource, error);
+    }
+}
+
 - (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     if (_dataSourceDidInsertItemBlock)

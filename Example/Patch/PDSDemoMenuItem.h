@@ -14,6 +14,7 @@
 
 @interface PDSDemoMenuItem : NSObject <PDSDemoMenuItem>
 
++ (instancetype)menuItemWithTitle:(NSString *)title subtitle:(NSString *)subtitle userInfo:(NSDictionary *)userInfo;
 + (instancetype)menuItemWithTitle:(NSString *)title subtitle:(NSString *)subtitle;
 
 @end

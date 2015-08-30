@@ -102,6 +102,12 @@
 {
     // Currently supports single-section mash-all-objects together goodness
     // section support to come as needed
+    // But just in case datasources EXPECT to be asked at least once to kick things off,
+    // Ensure they're asked
+    for (id <PDSDataSource> dataSource in _dataSources)
+    {
+        [dataSource numberOfSections];
+    }
     return 1;
 }
 
@@ -133,8 +139,13 @@
 - (NSArray *)itemsInSection:(NSUInteger)section
 {
     NSAssert(section == 0, @"This datasource does not (yet) support sections");
-    NSAssert(NO, @"Not implemented");
-    return nil;
+    NSArray *items = @[];
+    for (id <PDSDataSource> dataSource in _dataSources)
+    {
+        // FIXME: Works for current purpose but makes ABSOLUTELY NO SENSE otherwise - should be all items
+        items = [items arrayByAddingObjectsFromArray:[dataSource itemsInSection:section]];
+    }
+    return items;
 }
 
 - (void)reload
@@ -159,6 +170,16 @@
 - (void)dataSourceDidReload:(id<PDSDataSource>)dataSource
 {
     [_changeNotifier dataSourceDidReload:self];
+}
+
+- (void)dataSourceWillStartLoading:(id<PDSDataSource>)dataSource
+{
+    [_changeNotifier dataSourceWillStartLoading:self];
+}
+
+- (void)dataSourceDidStopLoading:(id<PDSDataSource>)dataSource error:(NSError *)error
+{
+    [_changeNotifier dataSourceDidStopLoading:self error:error];
 }
 
 - (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath

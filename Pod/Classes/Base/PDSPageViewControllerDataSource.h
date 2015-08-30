@@ -26,6 +26,8 @@
 
 @interface PDSPageViewControllerDataSource (ReadOnly)
 
+@property (nonatomic, readonly) id <PDSDataSource> dataSource;
+
 @property (nonatomic, readonly) UIViewController *placeholderViewController;
 
 @end

@@ -1,9 +1,9 @@
 //
 //  PDSDemoPerson.m
-//  Patch
+//  
 //
-//  Created by Adam Iredale on 23/04/2015.
-//  Copyright (c) 2015 Adam Iredale. All rights reserved.
+//  Created by Adam Iredale on 27/05/2015.
+//
 //
 
 #import "PDSDemoPerson.h"
@@ -11,7 +11,11 @@
 
 @implementation PDSDemoPerson
 
-@dynamic name;
 @dynamic age;
+@dynamic name;
+@dynamic profession;
+@dynamic drinkPreference;
+@dynamic courseProgress;
+@dynamic isHidden;
 
 @end

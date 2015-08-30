@@ -23,12 +23,24 @@
 + (id<PDSDataSource>)mainMenuItemsDataSource
 {
     return [PDSArrayDataSource arrayDataSourceWithArray:
-  @[
-    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"TableView"],
-    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"CollectionView"],
-    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"PageViewController"],
-    [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource" subtitle:@"iCaraousel"]
-    ]];
+            @[
+              [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource"
+                                        subtitle:@"TableView"
+                                        userInfo:nil],
+              [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource"
+                                        subtitle:@"CollectionView, Sampled"
+                                        userInfo:@{
+                                                   PDSDemoStoryboardNameKey : @"SampleCollectionView"
+                                                   }],
+              [PDSDemoMenuItem menuItemWithTitle:@"Core Data DataSource"
+                                        subtitle:@"PageViewController"
+                                        userInfo:@{
+                                                   PDSDemoStoryboardNameKey : @"PDSDemoPageViewController"
+                                                   }],
+              [PDSDemoMenuItem menuItemWithTitle:@"Array DataSource"
+                                        subtitle:@"iCaraousel"
+                                        userInfo:nil]
+              ]];
 }
 
 #pragma mark - Other

@@ -73,6 +73,30 @@
     }
 }
 
+- (void)dataSourceWillStartLoading:(id<PDSDataSource>)dataSource
+{
+    for (id <PDSDataSourceChangeListener> listener in _listeners)
+    {
+        if (![listener respondsToSelector:@selector(dataSourceWillStartLoading:)])
+        {
+            continue;
+        }
+        [listener dataSourceWillStartLoading:dataSource];
+    }
+}
+
+- (void)dataSourceDidStopLoading:(id<PDSDataSource>)dataSource error:(NSError *)error
+{
+    for (id <PDSDataSourceChangeListener> listener in _listeners)
+    {
+        if (![listener respondsToSelector:@selector(dataSourceDidStopLoading:error:)])
+        {
+            continue;
+        }
+        [listener dataSourceDidStopLoading:dataSource error:error];
+    }
+}
+
 - (void)dataSource:(id<PDSDataSource>)dataSource didInsertItem:(id)item atIndexPath:(NSIndexPath *)indexPath
 {
     for (id <PDSDataSourceChangeListener> listener in _listeners)
