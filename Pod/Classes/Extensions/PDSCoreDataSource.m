@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSManagedObjectContext            *context;
 @property (nonatomic, strong) NSFetchRequest                    *fetchRequest;
 @property (nonatomic, strong) NSFetchedResultsController        *fetchedResultsController;
+@property (nonatomic, copy)   NSString                          *sectionKeyPath;
 
 @end
 
@@ -40,7 +41,11 @@
     return self;
 }
 
-- (instancetype)initWithEntityName:(NSString *)name sortDescriptors:(NSArray *)sortDescriptors andContext:(NSManagedObjectContext *)context
+- (instancetype)initWithEntityName:(NSString *)name sortDescriptors:(NSArray *)sortDescriptors andContext:(NSManagedObjectContext *)context {
+    return [self initWithEntityName:name sortDescriptors:sortDescriptors andContext:context andSectionKeyPath:nil];
+}
+
+- (instancetype)initWithEntityName:(NSString *)name sortDescriptors:(NSArray *)sortDescriptors andContext:(NSManagedObjectContext *)context andSectionKeyPath:(NSString*) sectionKeyPath
 {
     NSParameterAssert(name.length > 0);
     NSParameterAssert(sortDescriptors.count > 0);
@@ -51,7 +56,7 @@
     {
         self.context        = context;
         self.fetchRequest   = [NSFetchRequest fetchRequestWithEntityName:name];
-        
+        self.sectionKeyPath = sectionKeyPath;
         self.fetchRequest.sortDescriptors = sortDescriptors;
     }
     return self;

@@ -25,6 +25,10 @@
 @property (nonatomic, copy) void (^dataSourceDidUpdateItemBlock)(id <PDSDataSource> dataSource, id item, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^dataSourceDidRemoveItemBlock)(id <PDSDataSource> dataSource, id item, NSIndexPath *indexPath);
 
+@property (nonatomic, copy) void (^dataSourceDidInsertSectionAtIndex)(id <PDSDataSource> dataSource, NSInteger index);
+@property (nonatomic, copy) void (^dataSourceDidDeleteSectionAtIndex)(id <PDSDataSource> dataSource, NSInteger index);
+@property (nonatomic, copy) void (^dataSourceDidUpdateSectionAtIndex)(id <PDSDataSource> dataSource, NSInteger index);
+
 // TODO: Sections
 
 - (instancetype)initWithDataSource:(id <PDSChangingDataSource>)dataSource NS_DESIGNATED_INITIALIZER;
