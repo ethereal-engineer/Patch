@@ -102,17 +102,26 @@
 
 - (void)dataSource:(id<PDSDataSource>)dataSource didInsertSection:(id)sectionInfo atIndex:(NSInteger)index
 {
-    // TODO
+    if(_dataSourceDidInsertSectionAtIndex)
+    {
+        _dataSourceDidInsertSectionAtIndex(dataSource,index);
+    }
 }
 
 - (void)dataSource:(id<PDSDataSource>)dataSource didUpdateSection:(id)sectionInfo atIndex:(NSInteger)index
 {
-    // TODO
+    if(_dataSourceDidUpdateSectionAtIndex)
+    {
+        _dataSourceDidUpdateSectionAtIndex(dataSource,index);
+    }
 }
 
 - (void)dataSource:(id<PDSDataSource>)dataSource didRemoveSection:(id)sectionInfo atIndex:(NSInteger)index
 {
-    // TODO
+    if(_dataSourceDidDeleteSectionAtIndex)
+    {
+        _dataSourceDidDeleteSectionAtIndex(dataSource,index);
+    }
 }
 
 #pragma mark - Class Methods
